@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: multiple-data-sources
+
+  datasource:
+    sx:
+      jdbc-url: jdbc:${sx.platform}://${sx.mysql_ip}:${sx.mysql_port}/${sx.db_name}?createDatabaseIfNotExist=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: root@hiekn!
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#  sql:
+  #    init:
+  #      mode: never
+  #      continue-on-error: true
+  #      platform: mysql
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+
+
+sx.platform: mysql
+sx.mysql_ip: 192.169.4.200
+sx.mysql_port: 31211
+sx.db_name: sx
+
